@@ -1,43 +1,44 @@
 let tabuleiro = ['', '', '', '', '', '', '', '', '']
-let jogadorDaVez = 0
-const simbolo = ['o', 'x']
-let gameOver = false
-const resultado = document.getElementById("resultado")
-const botao = document.querySelector("button")
-const vitoriaEstado = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-]
+let jogadorIndex = 0
+let pecaJogador = ['x', 'o']
+let fimdejogo = false
 
-function ExucutarMovimento(posicao) {
-    if (gameOver) {
+function executarMovimento(posicao) {
+    if (fimdejogo) {
         return
     }
 
     if (tabuleiro[posicao] == '') {
-        tabuleiro[posicao] = simbolo[jogadorDaVez]
+        tabuleiro[posicao] = pecaJogador[jogadorIndex]
 
-        gameOver = vitoria()
+        fimdejogo = quemGanhou()
 
-        if (gameOver == false) {
-            jogadorDaVez == 0 ? jogadorDaVez = 1 : jogadorDaVez = 0
+        if (fimdejogo == false) {
+            if (jogadorIndex == 0) {
+                jogadorIndex = 1
+            } else {
+                jogadorIndex = 0
+            }
         }
     }
-
-    return gameOver
+    return fimdejogo
 }
 
-function vitoria() {
+function quemGanhou() {
 
-    for (let i = 0; i < vitoriaEstado.length; i++) {
-        let seq = vitoriaEstado[i]
+    let possibilidadesGanhar = [
+        ['0', '1', '2'],
+        ['3', '4', '5'],
+        ['6', '7', '8'],
+        ['0', '3', '6'],
+        ['1', '4', '7'],
+        ['2', '5', '8'],
+        ['0', '4', '8'],
+        ['2', '4', '6']
+    ]
 
+    for (let i = 0; i < possibilidadesGanhar.length; i++) {
+        let seq = possibilidadesGanhar[i]
         let pos1 = seq[0]
         let pos2 = seq[1]
         let pos3 = seq[2]
@@ -46,15 +47,10 @@ function vitoria() {
             return true
         }
     }
+
     return false
+
 }
-function recomecarJogo() {
-    if (gameOver == true) {
-        let tabuleiro = ['', '', '', '', '', '', '', '', '']
-        let jogadorDaVez = 0
-        const simbolo = ['o', 'x']
-        let gameOver = false
-    }
-}
+
 
 

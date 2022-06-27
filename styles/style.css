@@ -28,6 +28,9 @@ header {
 }
 
 .quadrado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100px;
     height: 100px;
     background-color: beige;
@@ -37,16 +40,14 @@ header {
 /* ======== SIMBOLOS ====== */
 
 .o{
-    text-align: center;
-    margin-top: 5px;
+    
 }
 .o:after{
     content:"\2B55";
     font-size: 60px;
 }
 .x{
-    text-align: center;
-    margin-top: 5px;
+    
 }
 .x:after{
     content:"\274C";
@@ -61,7 +62,7 @@ header {
 button{
     border:black solid 2px;
     transition-property: all;
-    transition-duration: 0.5s;
+    transition-duration: 0.8s;
     background-color: #876445;
     border-radius: 10px;
     color: white;
@@ -71,12 +72,11 @@ button{
 }
 button:hover{
     background-color: #524234;
-    box-shadow: beige 1px 1px 15px;
-    border: beige solid 2px;
+    box-shadow: beige 0px 0px 5px 5px;
+    border: #524234 solid 2px;
 }
 button:focus{
     background-color: #524234;
-    box-shadow: beige 1px 1px 15px;
     border: beige solid 2px;
 }
 
