@@ -16,23 +16,46 @@
         <h1>Jogo da Velha</h1>
     </header>
 
-    <section class="tabuleiro">
-        <div id="0" class="quadrado"></div>
-        <div id="1" class="quadrado"></div>
-        <div id="2" class="quadrado"></div>
-        <div id="3" class="quadrado"></div>
-        <div id="4" class="quadrado"></div>
-        <div id="5" class="quadrado"></div>
-        <div id="6" class="quadrado"></div>
-        <div id="7" class="quadrado"></div>
-        <div id="8" class="quadrado"></div>
+    <section class="container-principal">
+        <section class="X">
+            <img class="imagem" src="./imagens/X.gif" alt="Pixelart tabuleiro com X">
+        </section>
+        <section class="O">
+            <img class="imagem" src="./imagens/O.gif" alt="Pixelart tabuleiro com circulo">
+        </section>
+        <section class="tabuleiro">
+            <div id="0" class="quadrado"></div>
+            <div id="1" class="quadrado"></div>
+            <div id="2" class="quadrado"></div>
+            <div id="3" class="quadrado"></div>
+            <div id="4" class="quadrado"></div>
+            <div id="5" class="quadrado"></div>
+            <div id="6" class="quadrado"></div>
+            <div id="7" class="quadrado"></div>
+            <div id="8" class="quadrado"></div>
+        </section>
     </section>
 
-    <section class="botao">
-        <button>Recomeçar Partida</button>
+    <section class="recomecar">
+        <button class="botao">Recomeçar Partida</button>
     </section>
 
     <section id="resultado"></section>
+
+    <section class="sobre">
+        <h4>Chame seu amigo(s) e se divirta com este divertido Jogo da Velha. </h4>
+        <p>- O primeiro jogador é o símbolo X.</p>
+    </section>
+
+    <footer class="footer">
+        <p>Desenvolvido por Eduardo Braga</p>
+        <div class="links">
+            <a href="https://github.com/EduuBraga" target="_blank" class="github"><img class="logo-github"
+                    src="./imagens/logo-github.png">github</a>
+            <a href="https://www.linkedin.com/in/eduardo-braga-aa0aa922b/" target="_blank" class="linkedin"><img
+                    class="logo-linkedin" src="./imagens/logo-linkedin.png">LinkedIn</a>
+        </div>
+    </footer>
 
     <script src="./scrips/game.js"></script>
     <script src="./scrips/interface.js"></script>

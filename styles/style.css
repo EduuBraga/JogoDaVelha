@@ -1,7 +1,7 @@
 body {
     padding: 0;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     background-image: linear-gradient(45deg, #deb27f, #EEC373, #F4DFBA);
     background-attachment: fixed;
 }
@@ -14,7 +14,7 @@ header {
     padding: 1px;
     text-align: center;
     background-color: #876445;
-    color: beige;
+    color: white;
 }
 
 /* ====== TABULEIRO ====== */
@@ -37,57 +37,71 @@ header {
     border: 2px solid black;
 }
 
+/* ====== CONTAINER COM GIFS E TABULEIRO =====  */
+
+.container-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ====== GIFS ======*/
+
+.O {
+    order: 3;
+}
+
+.imagem {
+    width: 130px;
+}
+
 /* ======== SIMBOLOS ====== */
 
-.o{
-    
-}
-.o:after{
-    content:"\2B55";
-    font-size: 60px;
-}
-.x{
-    
-}
-.x:after{
-    content:"\274C";
+.o:after {
+    content: "\2B55";
     font-size: 60px;
 }
 
-/* ====== BUTÃO ===== */
-.botao{
-    text-align: center;
-    margin:20px 0px 0px 0px ; 
+.x:after {
+    content: "\274C";
+    font-size: 60px;
 }
-button{
-    border:black solid 2px;
+
+/* ====== BOTÃO ===== */
+.recomecar {
+    text-align: center;
+    margin: 15px 0px 0px 0px;
+}
+
+button {
+    border: black solid 2px;
     transition-property: all;
     transition-duration: 0.8s;
     background-color: #876445;
     border-radius: 10px;
     color: white;
     padding: 15px 10px 15px 10px;
-    font-weight: 700;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 1px;
     font-size: 16px;
 }
-button:hover{
+
+button:hover {
     background-color: #524234;
     box-shadow: beige 0px 0px 5px 5px;
     border: #524234 solid 2px;
-}
-button:focus{
-    background-color: #524234;
-    border: beige solid 2px;
 }
 
 
 /* ====== RESULTADO ====== */
 
-#resultado{
+#resultado {
+    position: relative;
     text-align: center;
-    margin: 10px 0px 0px 0px;
+    margin: 10px 10px 0px 10px;
 }
-#resultado > p{
+
+#resultado>p {
     border: rgb(0, 0, 0) solid 2px;
     font-weight: 700;
     display: inline-block;
@@ -96,10 +110,128 @@ button:focus{
     padding: 15px 20px 15px 20px;
     color: white;
 }
-#resultado > p > span{
+
+#resultado>p>span {
     margin: 0px 3px 0px 3px;
     padding: 2px 4px 2px 4px;
     border-radius: 3px;
-    background-color: white ;
+    background-color: white;
     color: rgb(188, 29, 29);
+}
+
+/* ====== SOBRE ===== */
+
+.sobre {
+    margin: 20px 30px 0px 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #b87f4d;
+    color: white;
+    text-align: center;
+    padding: 5px 10px 5px 10px;
+    box-shadow: rgb(0, 0, 0) 15px 15px 0px 5px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    border-top: 2px solid black;
+    margin-top: 32px;
+    text-align: center;
+    background-color: #876445;
+    color: white;
+}
+
+.footer>p {
+    padding-top: 15px;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 15px;
+}
+
+.logo-github {
+    width: 30px;
+    margin-right: 3px;
+}
+
+.logo-linkedin {
+    width: 30px;
+    margin-right: 3px;
+}
+
+.github {
+    text-decoration: none;
+    color: white;
+}
+
+.linkedin {
+    text-decoration: none;
+    color: white;
+}
+
+.github:hover {
+    text-decoration: underline;
+}
+
+.linkedin:hover {
+    text-decoration: underline;
+}
+
+/* ======= MEDIA QUERIES ======== */
+
+
+@media screen and (min-width: 750px) {
+
+    .container-principal {
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .container-principal {
+        display: block;
+        position: relative;
+    }
+
+    .X {
+        display: inline-block;
+        left: 10px;
+    }
+
+    .O {
+        display: inline-block;
+        position: absolute;
+        right: 10px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+
+    /* ====== TABULEIRO ====== */
+
+    .quadrado {
+        width: 70px;
+        height: 70px;
+    }
+
+    /* ====== GIFS ======*/
+
+    .imagem {
+        width: 100px;
+    }
+
+    /* ======== SIMBOLOS ====== */
+
+    .o:after {
+        font-size: 40px;
+    }
+
+    .x:after {
+        font-size: 40px;
+    }
+
 }

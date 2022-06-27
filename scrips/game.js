@@ -2,6 +2,16 @@ let tabuleiro = ['', '', '', '', '', '', '', '', '']
 let jogadorIndex = 0
 let pecaJogador = ['x', 'o']
 let fimdejogo = false
+let possibilidadesGanhar = [
+    ['0', '1', '2'],
+    ['3', '4', '5'],
+    ['6', '7', '8'],
+    ['0', '3', '6'],
+    ['1', '4', '7'],
+    ['2', '5', '8'],
+    ['0', '4', '8'],
+    ['2', '4', '6']
+]
 
 function executarMovimento(posicao) {
     if (fimdejogo) {
@@ -26,17 +36,6 @@ function executarMovimento(posicao) {
 
 function quemGanhou() {
 
-    let possibilidadesGanhar = [
-        ['0', '1', '2'],
-        ['3', '4', '5'],
-        ['6', '7', '8'],
-        ['0', '3', '6'],
-        ['1', '4', '7'],
-        ['2', '5', '8'],
-        ['0', '4', '8'],
-        ['2', '4', '6']
-    ]
-
     for (let i = 0; i < possibilidadesGanhar.length; i++) {
         let seq = possibilidadesGanhar[i]
         let pos1 = seq[0]
@@ -51,6 +50,10 @@ function quemGanhou() {
     return false
 
 }
-
+function recomecar() {
+    tabuleiro = ['', '', '', '', '', '', '', '', '']
+    fimdejogo = false
+    jogadorIndex = 0
+}
 
 
