@@ -1,9 +1,11 @@
+* {
+    color: white;
+}
+
 body {
-    padding: 0;
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
     background-image: linear-gradient(45deg, #deb27f, #EEC373, #F4DFBA);
-    background-attachment: fixed;
 }
 
 /* ======= CABEÇALHO ======  */
@@ -14,7 +16,6 @@ header {
     padding: 1px;
     text-align: center;
     background-color: #876445;
-    color: white;
 }
 
 /* ====== TABULEIRO ====== */
@@ -24,7 +25,7 @@ header {
     grid-template: auto auto auto / auto auto auto;
     justify-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 2px;
 }
 
 .quadrado {
@@ -78,10 +79,9 @@ button {
     transition-property: all;
     transition-duration: 0.8s;
     background-color: #876445;
-    border-radius: 10px;
-    color: white;
+    border-radius: 15px;
     padding: 15px 10px 15px 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
     letter-spacing: 1px;
     font-size: 16px;
 }
@@ -96,7 +96,6 @@ button:hover {
 /* ====== RESULTADO ====== */
 
 #resultado {
-    position: relative;
     text-align: center;
     margin: 10px 10px 0px 10px;
 }
@@ -107,8 +106,7 @@ button:hover {
     display: inline-block;
     border-radius: 10px;
     background: #876445;
-    padding: 15px 20px 15px 20px;
-    color: white;
+    padding: 10px 20px 10px 20px;
 }
 
 #resultado>p>span {
@@ -126,7 +124,6 @@ button:hover {
     border: 2px solid black;
     border-radius: 10px;
     background-color: #b87f4d;
-    color: white;
     text-align: center;
     padding: 5px 10px 5px 10px;
     box-shadow: rgb(0, 0, 0) 15px 15px 0px 5px;
@@ -138,7 +135,6 @@ button:hover {
     margin-top: 32px;
     text-align: center;
     background-color: #876445;
-    color: white;
 }
 
 .footer>p {
@@ -152,33 +148,22 @@ button:hover {
     padding-bottom: 15px;
 }
 
-.logo-github {
-    width: 30px;
-    margin-right: 3px;
-}
-
+.logo-github,
 .logo-linkedin {
     width: 30px;
     margin-right: 3px;
 }
 
-.github {
-    text-decoration: none;
-    color: white;
-}
-
+.github,
 .linkedin {
     text-decoration: none;
-    color: white;
 }
 
-.github:hover {
-    text-decoration: underline;
-}
-
+.github:hover,
 .linkedin:hover {
     text-decoration: underline;
 }
+
 
 /* ======= MEDIA QUERIES ======== */
 
@@ -199,13 +184,14 @@ button:hover {
 
     .X {
         display: inline-block;
-        left: 10px;
+        position: relative;
+        left: 30px;
     }
 
     .O {
         display: inline-block;
         position: absolute;
-        right: 10px;
+        right: 30px;
     }
 }
 

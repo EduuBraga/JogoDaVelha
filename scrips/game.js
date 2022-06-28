@@ -1,8 +1,9 @@
+//Declarando as variáveis do para o jogo.
 let tabuleiro = ['', '', '', '', '', '', '', '', '']
 let jogadorIndex = 0
 let pecaJogador = ['x', 'o']
 let fimdejogo = false
-let possibilidadesGanhar = [
+const possibilidadesGanhar = [
     ['0', '1', '2'],
     ['3', '4', '5'],
     ['6', '7', '8'],
@@ -13,6 +14,7 @@ let possibilidadesGanhar = [
     ['2', '4', '6']
 ]
 
+/*Função para executar o movimento, recebendo como arguemento o id do quadrado clicado.  */
 function executarMovimento(posicao) {
     if (fimdejogo) {
         return
@@ -34,6 +36,7 @@ function executarMovimento(posicao) {
     return fimdejogo
 }
 
+/*Função onde vai conferir quando o jogo acabou.*/
 function quemGanhou() {
 
     for (let i = 0; i < possibilidadesGanhar.length; i++) {
@@ -50,6 +53,7 @@ function quemGanhou() {
     return false
 
 }
+/*Função para recomeçar o jogo. */
 function recomecar() {
     tabuleiro = ['', '', '', '', '', '', '', '', '']
     fimdejogo = false
