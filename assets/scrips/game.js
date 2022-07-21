@@ -1,6 +1,8 @@
 //Declarando as variáveis do para o jogo.
+const jogadorEscolhido = document.querySelector('#jogadorEscolhido')
 let tabuleiro = ['', '', '', '', '', '', '', '', '']
 let jogadorIndex = 0
+let jogadorIndexX = 1
 let pecaJogador = ['x', 'o']
 let fimdejogo = false
 const possibilidadesGanhar = [
@@ -14,25 +16,44 @@ const possibilidadesGanhar = [
     ['2', '4', '6']
 ]
 
+
 /*Função para executar o movimento, recebendo como arguemento o id do quadrado clicado.  */
 function executarMovimento(posicao) {
     if (fimdejogo) {
         return
     }
 
-    if (tabuleiro[posicao] == '') {
-        tabuleiro[posicao] = pecaJogador[jogadorIndex]
+    if (!jogadorEscolhido.checked) {
+        if (tabuleiro[posicao] == '') {
+            tabuleiro[posicao] = pecaJogador[jogadorIndex]
 
-        fimdejogo = quemGanhou()
+            fimdejogo = quemGanhou()
 
-        if (fimdejogo == false) {
-            if (jogadorIndex == 0) {
-                jogadorIndex = 1
-            } else {
-                jogadorIndex = 0
+            if (fimdejogo == false) {
+                if (jogadorIndex == 0) {
+                    jogadorIndex = 1
+                } else {
+                    jogadorIndex = 0
+                }
+            }
+        }
+    } else {
+        if (tabuleiro[posicao] == '') {
+            tabuleiro[posicao] = pecaJogador[jogadorIndexX]
+
+            fimdejogo = quemGanhou()
+
+            if (fimdejogo == false) {
+                if (jogadorIndexX == 0) {
+                    jogadorIndexX = 1
+                } else {
+                    jogadorIndexX = 0
+                }
             }
         }
     }
+
+
     return fimdejogo
 }
 
@@ -54,7 +75,7 @@ function quemGanhou() {
 
 }
 /*Função para recomeçar o jogo. */
-function recomecar() {
+function limparTabuleiro() {
     tabuleiro = ['', '', '', '', '', '', '', '', '']
     fimdejogo = false
     jogadorIndex = 0

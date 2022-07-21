@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css" type="text/css">
-    <link rel="shortcut icon" href="./imagens/favi.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/styles/style.css" type="text/css">
+    <link rel="shortcut icon" href="./assets/imagens/favi.ico" type="image/x-icon">
     <title>Jogo da Velha</title>
 </head>
 
@@ -18,10 +18,10 @@
 
     <section class="container-principal">
         <section class="X">
-            <img class="imagem" src="./imagens/X.gif" alt="Pixelart tabuleiro com X">
+            <img class="imagem" src="./assets/imagens/X.gif" alt="Pixelart tabuleiro com X">
         </section>
         <section class="O">
-            <img class="imagem" src="./imagens/O.gif" alt="Pixelart tabuleiro com circulo">
+            <img class="imagem" src="./assets/imagens/O.gif" alt="Pixelart tabuleiro com circulo">
         </section>
         <section class="tabuleiro">
             <div id="0" class="quadrado"></div>
@@ -37,28 +37,42 @@
     </section>
 
     <section class="recomecar">
-        <button class="botao">Recomeçar Partida</button>
+        <button class="botao" onclick="recomecarJogo()">Recomeçar Partida</button>
     </section>
-
-    <section id="resultado"></section>
 
     <section class="sobre">
         <h4>Chame seu amigo(s) e se divirta com este divertido Jogo da Velha. </h4>
-        <p>- O primeiro jogador é o símbolo X.</p>
+        <p>Escolha com qual símbolo você quer começar:</p>
+        <div class="container-escolha">
+            <span class="simbolos">X</span>
+            <label class="switch">
+                <div class="switch-capa">
+                    <input class="check" id="jogadorEscolhido" type="checkbox">
+                    <span class="switch-botao"></span>
+                </div>
+            </label>
+            <span class="simbolos">Círculo</span>
+        </div>
     </section>
 
     <footer class="footer">
         <p>Desenvolvido por Eduardo Braga</p>
-        <div class="links">
-            <a href="https://github.com/EduuBraga" target="_blank" class="github"><img class="logo-github"
-                    src="./imagens/logo-github.png">github</a>
-            <a href="https://www.linkedin.com/in/eduardo-braga-aa0aa922b/" target="_blank" class="linkedin"><img
-                    class="logo-linkedin" src="./imagens/logo-linkedin.png">LinkedIn</a>
+        <div class="redes">
+            <div>
+                <img class="logos" src="./assets/imagens/logo-github.png" alt="Logo GitHub">
+            </div>
+            <a class="ancoras" href="https://github.com/EduuBraga" target="_blank">github</a>
+            <div>
+                <img class="logos" src="./assets/imagens/logo-linkedin.png" alt="Logo LinkedId">
+            </div>
+            <a class="ancoras" href="https://www.linkedin.com/in/eduardo-braga-aa0aa922b/" target="_blank">LinkedIn</a>
         </div>
     </footer>
 
-    <script src="./scrips/game.js"></script>
-    <script src="./scrips/interface.js"></script>
+    <section id="resultado"></section>
+
+    <script src="./assets/scrips/game.js"></script>
+    <script src="./assets/scrips/interface.js"></script>
 
 </body>
 

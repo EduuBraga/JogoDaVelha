@@ -1,8 +1,7 @@
-// Declarando variáveis dos Gifs, botão para recomeçar e resultado.
+// Declarando constantes.
 const botao = document.querySelector(".botao")
-const gifX = document.querySelector(".X")
-const gifO = document.querySelector(".O")
 const resultado = document.querySelector("#resultado")
+let simbolo = null
 
 // Evento click atribuído a todos os quadrados do tabuleiro, após a DOM carregar.
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,32 +14,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
-/* Evento click atribuído ao botão com funções para recomeçar o jogo.*/
-botao.addEventListener('click', () => {
-    recomecar()
-    limparQuadrados()
-    resultado.innerHTML = ``
-    gifX.innerHTML = `<img class="imagem" src="./imagens/X.gif" alt="Pixel-Art tabuleiro com Círculo">`
-    gifO.innerHTML = `<img class="imagem" src="./imagens/O.gif" alt="Pixel-Art tabuleiro com Círculo">`
-})
-
 /*Função que vai chamar a função executarMovimento (que está no script game.js) e passar para ela como argumento do id do quadrado clicado. */
 function executarClick(evento) {
 
     if (executarMovimento(evento.target.id)) {
+        
+        if (!jogadorEscolhido.checked) {
+            simbolo = jogadorIndex
+        } else {
+            simbolo = jogadorIndexX
+        }
 
-        let simbolo = jogadorIndex
         if (simbolo == 1) {
             simbolo = "Círculo"
-            gifX.innerHTML = `<img class="imagem" src="./imagens/O-vencedor.gif" alt="Pixel-Art tabuleiro com Círculo">`
-            gifO.innerHTML = `<img class="imagem" src="./imagens/O-vencedor.gif" alt="Pixel-Art tabuleiro com Círculo">`
+            resultado.innerHTML = `<p>Jogador <span>${simbolo}</span> venceu!</p> <div class="gif-vencedor"> <img class="imagem" src="./assets/imagens/O-Vencedor.gif" alt="Pixel-Art tabuleiro com Círculo"> </div> <div class="recomecar"> <button class="botao" onclick="recomecarJogo()">Recomeçar Partida</button> </div>`
         } else {
             simbolo = "X"
-            gifX.innerHTML = `<img class="imagem" src="./imagens/X-Vencedor.gif" alt="Pixel-Art tabuleiro com X">`
-            gifO.innerHTML = `<img class="imagem" src="./imagens/X-Vencedor.gif" alt="Pixel-Art tabuleiro com X">`
-
+            resultado.innerHTML = `<p>Jogador <span>${simbolo}</span> venceu!</p> <div class="gif-vencedor"> <img class="imagem" src="./assets/imagens/X-Vencedor.gif" alt="Pixel-Art tabuleiro com X"> </div> <div class="recomecar"> <button class="botao" onclick="recomecarJogo()">Recomeçar Partida</button> </div>`
         }
-        resultado.innerHTML = `<p>Jogo encerrado - Jogador <span>${simbolo}</span> venceu!</p>`
+        resultado.style = "display: flex;"
+
 
     }
     atualizarQuadrado(evento)
@@ -58,6 +51,13 @@ function atualizarQuadrado(evento) {
 
 }
 
+//Função para recomeçar o jogo.
+function recomecarJogo() {
+    limparTabuleiro()
+    limparQuadrados()
+    resultado.style = "display:none;"
+}
+
 /*Função para limpar os símbolos dos quadrados.*/
 function limparQuadrados() {
     let quadrados = document.querySelectorAll(".quadrado")
@@ -68,3 +68,4 @@ function limparQuadrados() {
         }
     })
 }
+
