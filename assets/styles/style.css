@@ -8,6 +8,7 @@ body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
     background-image: linear-gradient(45deg, #deb27f, #EEC373, #F4DFBA);
+    text-shadow: 1px 1px 1px black;
 }
 
 /* ======= CABEÇALHO ======  */
@@ -80,15 +81,13 @@ button {
     font-weight: 900;
     letter-spacing: 1px;
     font-size: 16px;
-    text-shadow: 1px 1px 1px black;
     box-shadow: rgb(255, 255, 255) 0px 0px 2px 2px
 }
 
 button:hover {
     color: black;
-    background-color: #deb27f;
+    background-color: #b87f4d;
     box-shadow: rgb(0, 0, 0) 0px 0px 2px 2px;
-    border: none;
     text-shadow: 1px 1px 1px rgb(255, 255, 255);
 }
 
@@ -127,7 +126,6 @@ button:hover {
     text-align: center;
     padding: 5px 10px 5px 10px;
     box-shadow: rgb(0, 0, 0) 15px 15px 0px 5px;
-    text-shadow: 1px 1px 1px black;
     font-weight: 900;
 }
 
