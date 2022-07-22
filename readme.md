@@ -1,8 +1,10 @@
 # Projeto Jogo da Velha
 
+##### <strong>Obs: Este documentário está desatualizado, pois ainda não contém as informações sobre quando o jogo dar velha e a possibilidade de escolher com qual símbolo quer começar.</strong>
+
 ## Desenvolvimento
 
-<p>O projeto foi desenvolvido com base no método MVC (Model-View-Controller), onde uma parte está responsável por toda as funcionalidades do jogo, outra parte responsável pela interatividade (HTML) e a última parte responsável por juntar está duas, juntando o jogo (game.js) e o HTML.</p>
+<p>O projeto foi desenvolvido com base no método MVC (Model-View-Controller), onde uma parte está responsável por toda as funcionalidades do jogo, outra parte responsável pela interatividade (HTML) e a última parte responsável por juntar está duas, juntando o algoritmo do jogo a parte visual.</p>
 <p>O script do jogo (game.js) foi criado de uma maneira que poderia ser reutilizado para um novos projetos, pois ele não conhece nada sobre o view (HTML), ele está responsável por fazer o jogo acontecer, dentro dele tem as seguintes funções:</p>
 
 - Função para executar o movimento, que vai ser usada no controller dentro de um evento de click, onde vai receber o id do elemento como argumento e vai usar este id para ser empurrado um X ou um O para dentro do tabuleiro, além da mesma conferir quem ganhou a cada movimento.

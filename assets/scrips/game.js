@@ -1,8 +1,8 @@
-//Declarando as variáveis do para o jogo.
+//Declarando as variáveis para o jogo.
 const jogadorEscolhido = document.querySelector('#jogadorEscolhido')
 let tabuleiro = ['', '', '', '', '', '', '', '', '']
-let jogadorIndex = 0
-let jogadorIndexX = 1
+let jogadorIndexQndX = 0
+let jogadorIndexQndO = 1
 let pecaJogador = ['x', 'o']
 let fimdejogo = false
 const possibilidadesGanhar = [
@@ -25,34 +25,34 @@ function executarMovimento(posicao) {
 
     if (!jogadorEscolhido.checked) {
         if (tabuleiro[posicao] == '') {
-            tabuleiro[posicao] = pecaJogador[jogadorIndex]
+            tabuleiro[posicao] = pecaJogador[jogadorIndexQndX]
 
             fimdejogo = quemGanhou()
 
+
             if (fimdejogo == false) {
-                if (jogadorIndex == 0) {
-                    jogadorIndex = 1
+                if (jogadorIndexQndX == 0) {
+                    jogadorIndexQndX = 1
                 } else {
-                    jogadorIndex = 0
+                    jogadorIndexQndX = 0
                 }
             }
         }
     } else {
         if (tabuleiro[posicao] == '') {
-            tabuleiro[posicao] = pecaJogador[jogadorIndexX]
+            tabuleiro[posicao] = pecaJogador[jogadorIndexQndO]
 
             fimdejogo = quemGanhou()
 
             if (fimdejogo == false) {
-                if (jogadorIndexX == 0) {
-                    jogadorIndexX = 1
+                if (jogadorIndexQndO == 0) {
+                    jogadorIndexQndO = 1
                 } else {
-                    jogadorIndexX = 0
+                    jogadorIndexQndO = 0
                 }
             }
         }
     }
-
 
     return fimdejogo
 }
@@ -81,4 +81,12 @@ function limparTabuleiro() {
     jogadorIndex = 0
 }
 
+function checarVelha() {
+    let velha = tabuleiro.filter(i => i != "").length
+    if (velha == 8) {
+        return true
+    }
+    console.log(velha)
+    return false
 
+}

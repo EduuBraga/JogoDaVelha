@@ -17,25 +17,31 @@ document.addEventListener('DOMContentLoaded', () => {
 /*Função que vai chamar a função executarMovimento (que está no script game.js) e passar para ela como argumento do id do quadrado clicado. */
 function executarClick(evento) {
 
+    if(checarVelha()){
+        resultado.innerHTML = `<p><span>Velha!</span> Dê seu melhor na próxima. </p>  <div class="recomecar"> <button class="botao" onclick="recomecarJogo()">Nova Partida</button> </div>`
+        resultado.style = "display:flex;"
+    }
+
     if (executarMovimento(evento.target.id)) {
-        
+
         if (!jogadorEscolhido.checked) {
-            simbolo = jogadorIndex
+            simbolo = jogadorIndexQndX
         } else {
-            simbolo = jogadorIndexX
+            simbolo = jogadorIndexQndO
         }
 
         if (simbolo == 1) {
-            simbolo = "Círculo"
-            resultado.innerHTML = `<p>Jogador <span>${simbolo}</span> venceu!</p> <div class="gif-vencedor"> <img class="imagem" src="./assets/imagens/O-Vencedor.gif" alt="Pixel-Art tabuleiro com Círculo"> </div> <div class="recomecar"> <button class="botao" onclick="recomecarJogo()">Recomeçar Partida</button> </div>`
+            simbolo = "O"
+            resultado.innerHTML = `<p>Jogador <span>${simbolo}</span> venceu!</p> <div class="gif-vencedor"> <img class="imagem" src="./assets/imagens/O-Vencedor.gif" alt="Pixel-Art tabuleiro com O"> </div> <div class="recomecar"> <button class="botao" onclick="recomecarJogo()">Nova Partida</button> </div>`
         } else {
             simbolo = "X"
-            resultado.innerHTML = `<p>Jogador <span>${simbolo}</span> venceu!</p> <div class="gif-vencedor"> <img class="imagem" src="./assets/imagens/X-Vencedor.gif" alt="Pixel-Art tabuleiro com X"> </div> <div class="recomecar"> <button class="botao" onclick="recomecarJogo()">Recomeçar Partida</button> </div>`
+            resultado.innerHTML = `<p>Jogador <span>${simbolo}</span> venceu!</p> <div class="gif-vencedor"> <img class="imagem" src="./assets/imagens/X-Vencedor.gif" alt="Pixel-Art tabuleiro com X"> </div> <div class="recomecar"> <button class="botao" onclick="recomecarJogo()">Nova Partida</button> </div>`
         }
         resultado.style = "display: flex;"
 
 
     }
+    
     atualizarQuadrado(evento)
 }
 
@@ -53,9 +59,17 @@ function atualizarQuadrado(evento) {
 
 //Função para recomeçar o jogo.
 function recomecarJogo() {
-    limparTabuleiro()
-    limparQuadrados()
-    resultado.style = "display:none;"
+    if (!jogadorEscolhido.checked) {
+        jogadorIndexQndX = 0
+        limparTabuleiro()
+        limparQuadrados()
+        resultado.style = "display:none;"
+    } else{
+        jogadorIndexQndO = 1
+        limparTabuleiro()
+        limparQuadrados()
+        resultado.style = "display:none;"
+    } 
 }
 
 /*Função para limpar os símbolos dos quadrados.*/
