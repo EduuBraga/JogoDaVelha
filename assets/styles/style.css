@@ -27,8 +27,13 @@ body {
     align-items: center;
     width: 100px;
     height: 100px;
-    background-color: beige;
+    background-color: #f5f5dc;
     border: 2px solid black;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.quadrado:hover{
+    background-color: #f5f5dc99;
 }
 
 /* ====== CONTAINER COM GIFS E TABULEIRO =====  */

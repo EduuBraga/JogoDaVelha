@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /*Função que vai chamar a função executarMovimento (que está no script game.js) e passar para ela como argumento do id do quadrado clicado. */
 function executarClick(evento) {
     if(checarVelha()){
-        resultado.innerHTML = `<p><span>Velha!</span> Dê seu melhor na próxima. </p>  <div class="recomecar"> <button class="botao button-clicked" onclick="recomecarJogo()">Nova Partida</button> </div>`
+        resultado.innerHTML = `<p><span>Velha!</span> Comece outra partida. </p>  <div class="recomecar"> <button class="botao button-clicked" onclick="recomecarJogo()">Nova Partida</button> </div>`
         resultado.style = "display:flex;"
     }
 
