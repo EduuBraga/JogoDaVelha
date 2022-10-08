@@ -78,7 +78,6 @@ function quemGanhou() {
 function limparTabuleiro() {
     tabuleiro = ['', '', '', '', '', '', '', '', '']
     fimdejogo = false
-    jogadorIndex = 0
 }
 
 function checarVelha() {
@@ -86,7 +85,13 @@ function checarVelha() {
     if (velha == 8) {
         return true
     }
-    console.log(velha)
     return false
+}
 
+function checarTabuleiroVazio() {
+    let pecasTabuleiro = tabuleiro.filter(peca => peca == "").length
+    if(pecasTabuleiro == 9){
+        return true
+    }
+    return false
 }

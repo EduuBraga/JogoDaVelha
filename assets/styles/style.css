@@ -1,23 +1,15 @@
 * {
     color: white;
     box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 body {
+    height: 100vh;
     position: relative;
     margin: 0;
-    font-family: 'Courier New', Courier, monospace;
     background-image: linear-gradient(45deg, #deb27f, #EEC373, #F4DFBA);
     text-shadow: 1px 1px 1px black;
-}
-
-/* ======= CABEÇALHO ======  */
-header {
-    border-bottom: 2px solid black;
-    margin-bottom: 20px;
-    padding: 1px;
-    text-align: center;
-    background-color: #876445;
 }
 
 /* ====== TABULEIRO ====== */
@@ -41,6 +33,7 @@ header {
 
 /* ====== CONTAINER COM GIFS E TABULEIRO =====  */
 .container-principal {
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,6 +43,7 @@ header {
 .O {
     order: 3;
 }
+
 .imagem {
     width: 130px;
 }
@@ -59,6 +53,7 @@ header {
     content: "\2B55";
     font-size: 60px;
 }
+
 .x:after {
     content: "\274C";
     font-size: 60px;
@@ -70,33 +65,50 @@ header {
     margin: 15px 0px 0px 0px;
 }
 
-button {
-    font-family: 'Courier New', Courier, monospace;
+.button-no-click{
+    color: #101010; 
+    background-color: red; 
+    cursor: not-allowed; 
+    transform: scale(1); 
+    box-shadow: #000000 0px 0px 0px 2px; 
     border: none;
-    transition-property: all;
-    transition-duration: 0.8s;
-    background-color: #876445;
+    transition: all 0.5s;
     border-radius: 15px;
     padding: 10px;
     font-weight: 900;
     letter-spacing: 1px;
     font-size: 16px;
-    box-shadow: rgb(255, 255, 255) 0px 0px 2px 2px
 }
 
-button:hover {
-    color: black;
-    background-color: #b87f4d;
-    box-shadow: rgb(0, 0, 0) 0px 0px 2px 2px;
-    text-shadow: 1px 1px 1px rgb(255, 255, 255);
+.button-clicked {
+    color: #ffffff;
+    cursor: pointer;
+    border: none;
+    transition: all 0.5s;
+    background-color: #000000;
+    border-radius: 15px;
+    padding: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    font-size: 16px;
+    box-shadow: rgb(255, 255, 255) 0px 0px 2px 2px;
+}
+
+.button-clicked:hover {
+    box-shadow: #000000 0px 0px 2px 2px;
+}
+
+.button-clicked:active, .button-clicked:focus {
+    transform: scale(0.95);
 }
 
 /* ====== RESULTADO ====== */
 #resultado {
-    position: absolute;
-    top: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     text-align: center;
     display: none;
     justify-content: center;
@@ -119,7 +131,7 @@ button:hover {
 
 /* ====== SOBRE ===== */
 .sobre {
-    margin: 20px 30px 0px 30px;
+    margin: 30px 30px 50px 30px;
     border: 2px solid black;
     border-radius: 10px;
     background-color: #b87f4d;
@@ -129,29 +141,29 @@ button:hover {
     font-weight: 900;
 }
 
-.container-escolha{
+.container-escolha {
     display: flex;
     justify-content: center;
     gap: 10px;
 }
 
-.simbolos{
+.simbolos {
     color: black;
-    font-size:25px ;
+    font-size: 25px;
     text-shadow: 1px 1px 1px white;
 }
 
-.switch{
+.switch {
     cursor: pointer;
 }
 
-.switch-capa{
+.switch-capa {
     width: 60px;
     height: 30px;
     position: relative;
 }
 
-.switch-botao{
+.switch-botao {
     position: absolute;
     top: 0;
     left: 0;
@@ -159,11 +171,11 @@ button:hover {
     bottom: 0;
     display: flex;
     align-items: center;
-    border-radius: 40px ;
+    border-radius: 40px;
     background-color: black;
 }
 
-.switch-botao::before{
+.switch-botao::before {
     content: "";
     width: 23px;
     height: 23px;
@@ -174,51 +186,29 @@ button:hover {
     transition: .5s all ease;
 }
 
-.check:checked + .switch-botao::before{
+.check:checked+.switch-botao::before {
     transform: translateX(30px);
 }
 
-/* ===== FOOTER ===== */
-.footer {
-    border-top: 2px solid black;
-    margin-top: 32px;
-    text-align: center;
-    background-color: #876445;
-    padding-bottom: 10px;
-}
-
-.redes{
-    display: flex;
-    justify-content: center;
-    gap: 3px;
-}
-
-.ancoras{
-    padding-top:5px;
-}
-
-.logos{
-    margin-left: 10px;
-    width: 30px;
-}
-
 /* ======= MEDIA QUERIES ======== */
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
     .container-principal {
         justify-content: space-around;
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     .container-principal {
         display: block;
         position: relative;
     }
+
     .X {
         display: inline-block;
         position: relative;
         left: 30px;
     }
+
     .O {
         display: inline-block;
         position: absolute;
@@ -226,20 +216,24 @@ button:hover {
     }
 }
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 425px) {
+
     /* ====== TABULEIRO ====== */
     .quadrado {
         width: 70px;
         height: 70px;
     }
+
     /* ====== GIFS ======*/
     .imagem {
         width: 100px;
     }
+
     /* ======== SIMBOLOS ====== */
     .o:after {
         font-size: 40px;
     }
+
     .x:after {
         font-size: 40px;
     }

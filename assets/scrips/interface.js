@@ -5,25 +5,21 @@ let simbolo = null
 
 // Evento click atribuído a todos os quadrados do tabuleiro, após a DOM carregar.
 document.addEventListener('DOMContentLoaded', () => {
-
     let quadrados = document.querySelectorAll(".quadrado")
 
     quadrados.forEach((elemento) => {
         elemento.addEventListener("click", executarClick)
     })
-
 })
 
 /*Função que vai chamar a função executarMovimento (que está no script game.js) e passar para ela como argumento do id do quadrado clicado. */
 function executarClick(evento) {
-
     if(checarVelha()){
-        resultado.innerHTML = `<p><span>Velha!</span> Dê seu melhor na próxima. </p>  <div class="recomecar"> <button class="botao" onclick="recomecarJogo()">Nova Partida</button> </div>`
+        resultado.innerHTML = `<p><span>Velha!</span> Dê seu melhor na próxima. </p>  <div class="recomecar"> <button class="botao button-clicked" onclick="recomecarJogo()">Nova Partida</button> </div>`
         resultado.style = "display:flex;"
     }
 
     if (executarMovimento(evento.target.id)) {
-
         if (!jogadorEscolhido.checked) {
             simbolo = jogadorIndexQndX
         } else {
@@ -32,33 +28,34 @@ function executarClick(evento) {
 
         if (simbolo == 1) {
             simbolo = "O"
-            resultado.innerHTML = `<p>Jogador <span>${simbolo}</span> venceu!</p> <div class="gif-vencedor"> <img class="imagem" src="./assets/imagens/O-Vencedor.gif" alt="Pixel-Art tabuleiro com O"> </div> <div class="recomecar"> <button class="botao" onclick="recomecarJogo()">Nova Partida</button> </div>`
+            resultado.innerHTML = `<p>Jogador <span>${simbolo}</span> venceu!</p> <div class="gif-vencedor"> <img class="imagem" src="./assets/imagens/O-Vencedor.gif" alt="Pixel-Art tabuleiro com O"> </div> <div class="recomecar"> <button class="botao button-clicked" onclick="recomecarJogo()">Nova Partida</button> </div>`
         } else {
             simbolo = "X"
-            resultado.innerHTML = `<p>Jogador <span>${simbolo}</span> venceu!</p> <div class="gif-vencedor"> <img class="imagem" src="./assets/imagens/X-Vencedor.gif" alt="Pixel-Art tabuleiro com X"> </div> <div class="recomecar"> <button class="botao" onclick="recomecarJogo()">Nova Partida</button> </div>`
+            resultado.innerHTML = `<p>Jogador <span>${simbolo}</span> venceu!</p> <div class="gif-vencedor"> <img class="imagem" src="./assets/imagens/X-Vencedor.gif" alt="Pixel-Art tabuleiro com X"> </div> <div class="recomecar"> <button class="botao button-clicked" onclick="recomecarJogo()">Nova Partida</button> </div>`
         }
         resultado.style = "display: flex;"
-
-
     }
     
     atualizarQuadrado(evento)
+
+    if(!checarTabuleiroVazio()){
+        botao.classList.remove('button-no-click')
+        botao.classList.add('button-clicked')
+    }
 }
 
 /*Função para colocar um elemento dentro do quadrado clicado.*/
 function atualizarQuadrado(evento) {
-
     let quadrado = evento.target
     let jogador = tabuleiro[quadrado.id]
 
     if (quadrado != '') {
         quadrado.innerHTML = `<div class="${jogador}"></div>`
     }
-
 }
 
 //Função para recomeçar o jogo.
-function recomecarJogo() {
+async function recomecarJogo() {
     if (!jogadorEscolhido.checked) {
         jogadorIndexQndX = 0
         limparTabuleiro()
@@ -70,6 +67,11 @@ function recomecarJogo() {
         limparQuadrados()
         resultado.style = "display:none;"
     } 
+
+    if(checarTabuleiroVazio()){
+        botao.classList.remove('button-clicked')
+        botao.classList.add('button-no-click')
+    }
 }
 
 /*Função para limpar os símbolos dos quadrados.*/
@@ -82,4 +84,3 @@ function limparQuadrados() {
         }
     })
 }
-

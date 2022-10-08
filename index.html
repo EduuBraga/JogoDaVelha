@@ -11,18 +11,13 @@
 </head>
 
 <body>
-
-    <header>
-        <h1>Jogo da Velha</h1>
-    </header>
-
-    <section class="container-principal">
-        <section class="X">
+    <main class="container-principal">
+        <div class="X">
             <img class="imagem" src="./assets/imagens/X.gif" alt="Pixelart tabuleiro com X">
-        </section>
-        <section class="O">
+        </div>
+        <div class="O">
             <img class="imagem" src="./assets/imagens/O.gif" alt="Pixelart tabuleiro com circulo">
-        </section>
+        </div>
         <section class="tabuleiro">
             <div id="0" class="quadrado"></div>
             <div id="1" class="quadrado"></div>
@@ -34,10 +29,10 @@
             <div id="7" class="quadrado"></div>
             <div id="8" class="quadrado"></div>
         </section>
-    </section>
+    </main>
 
     <section id="teste" class="recomecar">
-        <button class="botao" onclick="recomecarJogo()">Recomeçar Partida</button>
+        <button class="botao button-no-click" onclick="recomecarJogo()">Recomeçar Partida</button>
     </section>
 
     <section class="sobre">
@@ -54,20 +49,6 @@
             <span class="simbolos" style="font-size: 28px;">O</span>
         </div>
     </section>
-
-    <footer class="footer">
-        <p>Desenvolvido por Eduardo Braga</p>
-        <div class="redes">
-            <div>
-                <img class="logos" src="./assets/imagens/logo-github.png" alt="Logo GitHub">
-            </div>
-            <a class="ancoras" href="https://github.com/EduuBraga" target="_blank">github</a>
-            <div>
-                <img class="logos" src="./assets/imagens/logo-linkedin.png" alt="Logo LinkedId">
-            </div>
-            <a class="ancoras" href="https://www.linkedin.com/in/eduardo-braga-aa0aa922b/" target="_blank">LinkedIn</a>
-        </div>
-    </footer>
 
     <section id="resultado"></section>
 
