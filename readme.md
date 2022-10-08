@@ -15,6 +15,8 @@
 - Tabuleiro funcionando normalmente
 
 ## 🎨 View
+![jogodavelha](https://user-images.githubusercontent.com/99041150/194713091-a7ebfadb-a34d-49f5-88d7-ff91eaf3301e.gif)
+
 
 ## 🛠 Tecnologias
 As seguintes ferramentas foram usadas na construção do projeto:
